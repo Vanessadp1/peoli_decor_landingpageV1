@@ -1,0 +1,136 @@
+:root {
+    --rosa-claro: #ffccd5;
+    --rosa-escuro: #ff6b81;
+    --branco: #ffffff;
+}
+
+/* Estilos gerais */
+.bg-pink-light {
+    background-color: var(--rosa-claro);
+}
+
+.bg-pink-dark {
+    background-color: var(--rosa-escuro);
+}
+
+.text-pink-dark {
+    color: var(--rosa-escuro);
+}
+
+.bg-hero {
+    background-image: url('images/hero.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Animação de aparecimento nas seções */
+section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Estilos dos botões */
+.btn-pink-dark {
+    background-color: var(--rosa-escuro);
+    color: var(--branco);
+    border: none;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.btn-pink-dark:hover {
+    transform: scale(1.05);
+    background-color: #ff4757;
+}
+
+.btn-pink-dark:active {
+    transform: scale(0.95);
+}
+
+/* Efeito de pulsação no ícone do WhatsApp */
+.btn-pink-dark .fa-whatsapp {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+/* Estilos do footer */
+footer a i {
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+footer a:hover i {
+    transform: scale(1.2);
+    color: var(--rosa-claro);
+}
+
+/* Ajuste do tamanho das imagens do portfólio 
+#portfolio .carousel-item img {
+    max-height: 350px;
+    object-fit: cover;
+    border-radius: 20px;
+}*/
+
+#carouselPortfolio .carousel-item img {
+    max-height: 500px; /* Define um tamanho máximo para evitar cortes */
+    width: auto; /* Mantém a proporção original */
+    object-fit: contain; /* Garante que a imagem seja exibida completamente */
+    display: block;
+    margin: 0 auto; /* Centraliza horizontalmente */
+}
+
+
+/* Animação de balões */
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0); }
+}
+
+.balloon {
+    width: 70px;
+    height: 90px;
+    background-color: rgba(255, 182, 193, 0.9);
+    color: #fff;
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 90px;
+    border-radius: 50%;
+    position: absolute;
+    animation: float 6s infinite;
+}
+
+.balloon::after {
+    content: '';
+    width: 2px;
+    height: 50px;
+    background-color: var(--rosa-escuro);
+    position: absolute;
+    bottom: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.balloon1 { top: 50px; left: 10%; animation-duration: 5s; }
+.balloon2 { top: 80px; left: 30%; animation-duration: 7s; }
+.balloon3 { top: 40px; left: 50%; animation-duration: 6s; }
+.balloon4 { top: 70px; left: 70%; animation-duration: 8s; }
+.balloon5 { top: 60px; left: 90%; animation-duration: 5.5s; }
+
+header img {
+    width: 150px; /* Define um tamanho fixo menor */
+    height: auto; /* Mantém a proporção */
+    display: block;
+    margin: 10px auto; /* Centraliza e ajusta o espaçamento */
+    border-radius: 100px; /* Se quiser deixar a logo redonda */
+}

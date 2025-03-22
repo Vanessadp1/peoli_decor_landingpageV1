@@ -1,33 +1,104 @@
 :root {
-    --rosa-claro: #ffccd5;
-    --rosa-escuro: #ff6b81;
-    --branco: #ffffff;
+    --fundo-claro: #91DDCF; 
+    --rosa-claro: #f7f9f2;
+    --rosa-claro2: #e8c5e5;
+    --rosa: #f19ed2;
+    --sombra: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Estilos gerais */
-.bg-pink-light {
+/* Estilos Gerais */
+body {
+    font-family: "Quicksand", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    color: #333; /* Cor padrão para textos */
+}
+
+/* Header */
+header {
     background-color: var(--rosa-claro);
+    padding: 20px 0;
+    box-shadow: var(--sombra);
+    text-align: center;
 }
 
-.bg-pink-dark {
-    background-color: var(--rosa-escuro);
+.logo-container {
+    background-color: var(--fundo-claro);
+    padding: 15px;
+    border-radius: 20px;
+    display: inline-block;
+    margin: 0 auto;
+    box-shadow: var(--sombra);
 }
 
-.text-pink-dark {
-    color: var(--rosa-escuro);
+header img {
+    width: 180px;
+    height: auto;
+    border-radius: 15px;
+    transition: transform 0.3s ease;
 }
 
-.bg-hero {
-    background-image: url('images/hero.jpg');
-    background-size: cover;
-    background-position: center;
+header img:hover {
+    transform: scale(1.05);
 }
 
-/* Animação de aparecimento nas seções */
+h1 {
+    font-weight: 600;
+    letter-spacing: 1px;
+    font-size: 2.5rem;
+    color: var(--rosa);
+    margin-top: 15px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Navegação */
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 15px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--rosa);
+    text-decoration: none;
+    position: relative;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+nav a:hover {
+    color: #9d296a;
+    transform: translateY(-2px);
+}
+
+nav a::after {
+    content: "";
+    width: 0;
+    height: 2px;
+    background-color: var(--fundo-claro);
+    position: absolute;
+    left: 50%;
+    bottom: -5px;
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+nav a:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+/* Seções */
 section {
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    padding: 80px 0;
 }
 
 section.visible {
@@ -35,102 +106,289 @@ section.visible {
     transform: translateY(0);
 }
 
-/* Estilos dos botões */
+#sobre {
+    background-color: var(--fundo-claro);
+}
+
+#servicos {
+    background-color: var(--rosa-claro2);
+}
+
+#portfolio {
+    background-color: var(--fundo-claro);
+}
+
+#contato, footer {
+    background-color: var(--rosa);
+}
+
+/* Carrossel do Portfólio */
+#carouselPortfolio .carousel-item img {
+    height: 40vh;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: var(--sombra);
+}
+
+.carousel-control-prev, .carousel-control-next {
+    width: 5%;
+}
+
+/* Botões */
 .btn-pink-dark {
-    background-color: var(--rosa-escuro);
-    color: var(--branco);
+    background-color: var(--fundo-claro);
     border: none;
-    transition: transform 0.3s ease, background-color 0.3s ease;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 18px;
+    color: white;
+    box-shadow: var(--sombra);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .btn-pink-dark:hover {
-    transform: scale(1.05);
-    background-color: #ff4757;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .btn-pink-dark:active {
     transform: scale(0.95);
 }
 
-/* Efeito de pulsação no ícone do WhatsApp */
 .btn-pink-dark .fa-whatsapp {
-    animation: pulse 2s infinite;
+    margin-right: 10px;
 }
 
-@keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.1); }
-    100% { transform: scale(1); }
+/* Footer */
+footer {
+    padding: 20px 0;
+    text-align: center;
 }
 
-/* Estilos do footer */
 footer a i {
+    font-size: 24px;
+    margin: 0 10px;
     transition: transform 0.3s ease, color 0.3s ease;
 }
 
 footer a:hover i {
     transform: scale(1.2);
-    color: var(--rosa-claro);
+    color: var(--fundo-claro);
 }
 
-/* Ajuste do tamanho das imagens do portfólio 
-#portfolio .carousel-item img {
-    max-height: 350px;
-    object-fit: cover;
+footer a .fa-envelope {
+    color: #D44638;
+}
+
+footer a:hover .fa-envelope {
+    color: var(--fundo-claro);
+}
+
+/* Sobre */
+.sobre-container {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.sobre-foto {
+    flex: 1;
+    max-width: 300px;
     border-radius: 20px;
-}*/
+    overflow: hidden;
+    box-shadow: var(--sombra);
+    transition: transform 0.3s ease;
+}
 
-#carouselPortfolio .carousel-item img {
-    max-height: 500px; /* Define um tamanho máximo para evitar cortes */
-    width: auto; /* Mantém a proporção original */
-    object-fit: contain; /* Garante que a imagem seja exibida completamente */
+.sobre-foto img {
+    width: 100%;
+    height: auto;
     display: block;
-    margin: 0 auto; /* Centraliza horizontalmente */
 }
 
-
-/* Animação de balões */
-@keyframes float {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-20px); }
-    100% { transform: translateY(0); }
+.sobre-foto:hover {
+    transform: scale(1.05);
 }
 
-.balloon {
-    width: 70px;
-    height: 90px;
-    background-color: rgba(255, 182, 193, 0.9);
-    color: #fff;
-    font-size: 28px;
-    font-weight: bold;
+.sobre-texto {
+    flex: 2;
+}
+
+.sobre-texto h2 {
+    font-size: 2.5rem;
+    color: var(--rosa);
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.sobre-texto p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.sobre-destaque {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.sobre-destaque i {
+    font-size: 24px;
+    color: var(--rosa);
+}
+
+.sobre-destaque span {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #333;
+}
+
+/* Serviços */
+#servicos {
+    background-color: var(--rosa-claro2);
+    padding: 80px 0;
+}
+
+#servicos h2 {
+    font-size: 2.5rem;
+    color: var(--rosa);
     text-align: center;
-    line-height: 90px;
+    margin-bottom: 40px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.servicos-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap; /* Permite que os cards quebrem em várias linhas */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.servico-card {
+    background-color: white;
+    border-radius: 15px;
+    padding: 30px;
+    text-align: center;
+    width: 300px;
+    box-shadow: var(--sombra);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.servico-card:hover {
+    transform: translateY(-10px); /* Efeito de levantar ao passar o mouse */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra mais pronunciada */
+}
+
+.servico-card i {
+    font-size: 48px;
+    color: var(--rosa);
+    margin-bottom: 20px;
+}
+
+.servico-card h3 {
+    font-size: 1.5rem;
+    color: var(--rosa);
+    margin-bottom: 15px;
+}
+
+.servico-card p {
+    font-size: 1rem;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .servico-card {
+        width: 100%; /* Cards ocupam a largura total em telas pequenas */
+    }
+}
+/* Carrossel de Serviços */
+.carousel-servicos {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.carousel-inner {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.carousel-item {
+    min-width: 100%;
+    box-sizing: border-box;
+    padding: 0 10px;
+}
+
+.carousel-item .servicos-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.carousel-control-prev, .carousel-control-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--rosa);
+    border: none;
+    color: white;
+    font-size: 24px;
+    padding: 10px;
     border-radius: 50%;
-    position: absolute;
-    animation: float 6s infinite;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-.balloon::after {
-    content: '';
-    width: 2px;
-    height: 50px;
-    background-color: var(--rosa-escuro);
-    position: absolute;
-    bottom: -50px;
-    left: 50%;
-    transform: translateX(-50%);
+.carousel-control-prev:hover, .carousel-control-next:hover {
+    background-color: var(--fundo-claro);
 }
 
-.balloon1 { top: 50px; left: 10%; animation-duration: 5s; }
-.balloon2 { top: 80px; left: 30%; animation-duration: 7s; }
-.balloon3 { top: 40px; left: 50%; animation-duration: 6s; }
-.balloon4 { top: 70px; left: 70%; animation-duration: 8s; }
-.balloon5 { top: 60px; left: 90%; animation-duration: 5.5s; }
+.carousel-control-prev {
+    left: -40px;
+}
 
-header img {
-    width: 150px; /* Define um tamanho fixo menor */
-    height: auto; /* Mantém a proporção */
-    display: block;
-    margin: 10px auto; /* Centraliza e ajusta o espaçamento */
-    border-radius: 100px; /* Se quiser deixar a logo redonda */
+.carousel-control-next {
+    right: -40px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .sobre-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .sobre-foto {
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .sobre-destaque {
+        justify-content: center;
+    }
+
+    .servico-card {
+        width: 100%;
+    }
+
+    .carousel-control-prev {
+        left: 10px;
+    }
+
+    .carousel-control-next {
+        right: 10px;
+    }
 }

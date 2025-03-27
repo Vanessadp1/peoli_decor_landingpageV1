@@ -1,8 +1,11 @@
 :root {
-    --fundo-claro: #91DDCF; 
-    --rosa-claro: #f7f9f2;
-    --rosa-claro2: #e8c5e5;
-    --rosa: #f19ed2;
+    --fundo-claro0: #91ddd096; 
+    --fundo-claro: #f1ede5fd;/*nao mexer*/
+    --fundo-claro2:#dd91d99f; 
+    --fundo-claro3:#08d3969f; 
+    --rosa-claro: #f7f9f2c9;
+    --rosa-claro2: #e8c5e5ab;
+    --rosa: #f19ed3e1;/*nao mexer*/
     --sombra: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
@@ -26,7 +29,7 @@ header {
 }
 
 .logo-container {
-    background-color: var(--fundo-claro);
+    background-color: var(--fundo-claro2);
     padding: 15px;
     border-radius: 20px;
     display: inline-block;
@@ -115,7 +118,7 @@ section.visible {
 }
 
 #portfolio {
-    background-color: var(--fundo-claro);
+    background-color: var(--fundo-claro0);
 }
 
 #contato, footer {
@@ -137,7 +140,7 @@ section.visible {
 
 /* Botões */
 .btn-pink-dark {
-    background-color: var(--fundo-claro);
+    background-color: var(--fundo-claro3);
     border: none;
     padding: 10px 20px;
     border-radius: 25px;
@@ -161,27 +164,29 @@ section.visible {
 }
 
 /* Footer */
-footer {
-    padding: 20px 0;
-    text-align: center;
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
 }
 
-footer a i {
+.social-icon {
     font-size: 24px;
-    margin: 0 10px;
+    color: white;
     transition: transform 0.3s ease, color 0.3s ease;
 }
 
-footer a:hover i {
+.social-icon:hover {
     transform: scale(1.2);
     color: var(--fundo-claro);
 }
 
-footer a .fa-envelope {
-    color: #D44638;
-}
 
-footer a:hover .fa-envelope {
+.social-icon .fa-facebook-f { color: #1877F2; }
+.social-icon .fa-envelope { color: #D44638; }
+
+.social-icon:hover .fa-facebook-f,
+.social-icon:hover .fa-envelope {
     color: var(--fundo-claro);
 }
 

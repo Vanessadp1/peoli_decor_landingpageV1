@@ -15,7 +15,6 @@
         });
     });
 
-    // Animação de aparecimento ao rolar a página
     const sections = document.querySelectorAll('section');
 
     const observer = new IntersectionObserver(entries => {
@@ -23,11 +22,16 @@
             if (entry.isIntersecting) {
                 setTimeout(() => {
                     entry.target.classList.add('visible');
-                    observer.unobserve(entry.target); // Para de observar após a animação
-                }, index * 200); // Delay de 200ms entre cada seção
+                }, index * 200);
+            } else {
+                // Remove a classe quando sair da tela (opcional, se quiser resetar a animação)
+                entry.target.classList.remove('visible');
             }
         });
     }, { threshold: 0.1 });
+    
+    sections.forEach(section => observer.observe(section));
+    
 
     sections.forEach(section => {
         observer.observe(section);
@@ -51,15 +55,7 @@
         carouselInner.style.transform = `translateX(-${currentIndex * 100}%)`;
     }
 
-    function nextSlide() {
-        currentIndex++;
-        showSlide(currentIndex);
-    }
-
-    function prevSlide() {
-        currentIndex--;
-        showSlide(currentIndex);
-    }
+ 
 
     // Adiciona eventos aos botões de navegação
     if (prevButton && nextButton) {
